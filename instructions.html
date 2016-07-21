@@ -2,7 +2,7 @@
   KeyShot VR
   (c) Copyright 2012-2014 Luxion ApS - All Rights Reserved.
 
-  Instructions for deploying KeyShotVR to a website and sharing via email. 
+  Instructions for deploying KeyShotVR to a website and sharing via email.
 -->
 
 <!DOCTYPE html>
@@ -18,41 +18,83 @@
         color: #666666;
       }
 
-      code {
-        color: blue;
-        background-color: #F2F2F2;
+      .code {
+        display: inline-block;
+        padding: 5px;
         border: 1px solid #ccc;
-        padding: 0 3px 0 3px;
+        color: #B0B0B0;
+        background-color: #173C47;
         border-radius: 3px;
       }
 
-      .code {
-        color: blue;
-        padding: .3em;
-        background-color: #F2F2F2;
-        border: 1px solid #ccc;
-        border-radius: 3px;
+      .overlay {
+        position: absolute;
+        display: inline-block;
+        width: 1392px; /* same width as iframe below */
+        height: 632px; /* same height as iframe below */
+        pointer-events: none;
+      }
+
+      .c-tag {
+        color: #B38D36;
+      }
+
+      .c-attribute {
+        color: #48B093;
       }
     </style>
   </head>
   <body>
     <h2>Instructions for sharing KeyShotVR</h2>
-    <p>Below is your KeyShotVR. To view the KeyShotVR by itself open the <i><a href="最终2222_VR.35.html">最终2222_VR.35.html</a></i> file in the <i>最终2222_VR.35</i> folder.</p>
-    <iframe src="最终2222_VR.35.html" width="1600" height="703" frameborder="0" scrolling="no">iframe not supported by your browser</iframe>
+    <p>Below is your KeyShotVR. To view the KeyShotVR by itself open the <i><a href="untitled_VR.114.html">untitled_VR.114.html</a></i> file in the <i>untitled_VR.114</i> folder.</p>
+    <div style="max-width: 1392px; max-height: 632px;">
+    <div class="overlay" id="overlay">&nbsp;</div>
+    <div style="left: 0px; width: 100%; height: 0px; position: relative; padding-bottom: 45.4023%;">
+      <iframe src="untitled_VR.114.html"
+              allowfullscreen
+              style="top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;" 
+              frameborder="0"
+              scrolling="no">
+      </iframe>
+    </div>
+    </div>
     <h2>Uploading to your web site:</h2>
-    <ul>
-      <li>Upload the 最终2222_VR.35 folder and <i>最终2222_VR.35.html</i> file to a publicly accessible server.</li>
-      <li>In your webpage where you would like your KeyShotVR to be viewed from, create an <code>&lt;iframe&gt;</code> tag in the <code>&lt;body&gt;</code> section of the html file and update the <code>&lt;src&gt;</code> attribute to reflect the location of the VR on the webserver. Example: <code>&lt;iframe src="最终2222_VR.35.html" width="1600" height="703" frameborder="0" scrolling="no"&gt;&lt;/iframe&gt;</code></li>
-      <li>The <i>最终2222_VR.35.html</i> file must be kept in the same directory as the "files" folder.</li>
-    </ul>
-    <p>If you are sharing via email. You will need to send the entire zipped <i>最终2222_VR.35</i> folder to the end recipient.</p>
+    <p>Upload the untitled_VR.114 folder and untitled_VR.114.html to your webserver. 
+    Make sure when uploading the folder <br>and html file that your html file is located
+    in the same directory as the "files" folder inside untitled_VR.114.
+    <br>Copy/Paste the code below to your webpage.
+    <br>
+    <br>
+    <b>[Code]:</b>
+    <pre class="code"> &lt;<span class="c-tag">div</span> style=<span class="c-attribute">"max-width: 1392px; max-height: 632px;"</span>&gt;
+    &lt;<span class="c-tag">div</span> style=<span class="c-attribute">"left: 0px; width: 100%; height: 0px; position: relative; padding-bottom: 45.4023%;"</span>&gt;
+      &lt;<span class="c-tag">iframe</span> src=<span class="c-attribute">"untitled_VR.114.html"</span>
+                   allowfullscreen
+                   style=<span class="c-attribute">"top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"</span> 
+                   frameborder=<span class="c-attribute">"0"</span>
+                   scrolling=<span class="c-attribute">"no"</span>&gt;
+      &lt;/<span class="c-tag">iframe</span>&gt;
+  &lt;/<span class="c-tag">div</span>&gt;
+&lt;/<span class="c-tag">div</span>&gt;</pre>
+    </p>
+    <p>If you are sharing via email. You will need to send the entire zipped <i>untitled_VR.114</i> folder to the end recipient.</p>
+   <script>
+   // In cases where the mouse is in a drag state and dragged
+   // outside of the iframe the event is still activated
+   // when focusing back into the iframe. This will block the event until
+   // the mouse activates the event.
+   var blockEvent = true;
+   if (blockEvent) {
+     var overlay = document.getElementById("overlay");
 
-    <h2>Making VR mobile responsive within iframe tags:</h2>
-    <p>Open <i><a href="最终2222_VR.35.html">最终2222_VR.35.html</a></i> in a code editor and modify the value <code>var downScaleToBrowser</code> to be set to <code>true</code>, if this was not enabled inside of KeyShot. This will allow the VR to downscale with the browser when resized to mobile resolution.</p>
-    <p>If you're embedding the VR within an <code>iframe</code> and wish for the <code>iframe</code> to be fluid, it is important you add the below JS snippet to your website at the botttom of the page just above the closing <code>body</code> tag. This script will enable all <code>iframe</code> tags to be fluid on the page.
-    <p class="code">
-var vrIframe=document.getElementsByTagName("iframe");var pNode=[];for(var i=0;i&lt;vrIframe.length;i++){vrIframe[i].dataset.aspectRatio=vrIframe[i].height/vrIframe[i].width;vrIframe[i].dataset.maxHeight=vrIframe[i].height;vrIframe[i].dataset.maxWidth=vrIframe[i].width;pNode[i]=vrIframe[i].parentNode}
-window.addEventListener("resize",function(){for(var e=0;e&lt;vrIframe.length;e++){var t=pNode[e].clientWidth;if(t&lt;vrIframe[e].dataset.maxWidth){vrIframe[e].height=t*vrIframe[e].dataset.aspectRatio;vrIframe[e].width=t}}});var evt=document.createEvent("UIEvents");evt.initUIEvent("resize",true,false,window,0);window.dispatchEvent(evt)
-   </p>
+     document.addEventListener("mousedown", function(e) {
+       overlay.style.pointerEvents = "none";
+     }, false);
+
+     document.addEventListener("mouseup", function(e) {
+       overlay.style.pointerEvents = "auto";
+     }, false);
+   }
+   </script>
   </body>
 </html>
